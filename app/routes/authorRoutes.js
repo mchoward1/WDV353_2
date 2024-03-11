@@ -1,44 +1,20 @@
 const router = require('express').Router();
+const {
+    createAuthor,
+    getAllAuthors,
+    getAuthorById,
+    updateAuthor,
+    deleteAuthor
+} = require('../controller/authorController');
 
-router.get('/', (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: req.method + ' - Request Made'
-    });
-});
+router.get('/', getAllAuthors);
 
-router.post('/', (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: req.method + ' - Request Made'
-    });
-});
+router.post('/', createAuthor);
 
-router.get('/:id', (req, res) => {
-    const {id} = req.params;
-    res.status(200).json({
-        id,
-        success: true,
-        message: req.method + ' - Request Made'
-    });
-});
+router.get('/:id', getAuthorById);
 
-router.put('/:id', (req, res) => {
-    const {id} = req.params;
-    res.status(200).json({
-        id,
-        success: true,
-        message: req.method + ' - Request Made'
-    });
-});
+router.put('/:id', updateAuthor);
 
-router.delete('/:id', (req, res) => {
-    const {id} = req.params;
-    res.status(200).json({
-        id,
-        success: true,
-        message: req.method + ' - Request Made'
-    });
-});
+router.delete('/:id', deleteAuthor);
 
 module.exports = router;
